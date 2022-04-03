@@ -17,7 +17,7 @@ class PostFixtures extends Fixture
             $post = new Post();
             $post->setTitle($factory->sentence)
                 ->setAuthor($factory->firstName . ' '. $factory->lastName)
-                ->setContent($factory->paragraphs)
+                ->setContent($factory->sentence)
                 ->setLanguage($factory->country);
 
             $manager->persist($post);
