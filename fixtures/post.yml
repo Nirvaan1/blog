@@ -1,0 +1,20 @@
+App\Entity\Post:
+  post_{REACT, VUE, ANGULAR}:
+    title: '<current()>'
+    content: Best framework Js ?
+    categories: ['@Front-end', '@Back-end']
+    author: '<postAuthor()>'
+    language: '<postLanguage()>'
+  post_{PHP, JAVA, PYTHON, NODE}:
+    title: '<current()>'
+    content: Vue le nouveau challenger de React ?
+    categories: ['@Front-end', '@Back-end']
+    author: '<postAuthor()>'
+    language: '<postLanguage()>'
+  post_{SYMFONY, LARAVEL}:
+    title: '<current()>'
+    content: Nous répondons au grand débat.
+    categories: ['@Back-end']
+    author: '<postAuthor()>'
+    language: '<postLanguage()>'
+

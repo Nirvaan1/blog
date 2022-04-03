@@ -1,0 +1,9 @@
+App\Entity\User:
+  admin:
+    email: admin@hotmail.fr
+    roles: ['ROLE_ADMIN']
+    password: '<hashPassword(admin)>'
+  user:
+    email: user@hotmail.fr
+    roles: ['ROLE_ADMIN']
+    password: '<hashPassword(user)>'

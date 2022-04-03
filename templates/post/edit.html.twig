@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="example-wrapper">
+        <div class="container">
+            <h1>Modifier un Article</h1>
+           {% include('post/form.html.twig') %}
+            <button class="btn btn-primary" type="submit" name="action">
+                Sauvegarder !
+            </button>
+
+                {{ form_end(form) }}
+        </div>
+
+    </div>
+{% endblock %}

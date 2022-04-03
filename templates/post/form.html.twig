@@ -1,0 +1,44 @@
+{{ form_start(form) }}
+<div class="my-custom-class-for-errors">
+    {{ form_errors(form.title) }}
+</div>
+<div class="mb-3">
+    {{ form_label(form.title) }}
+    {{ form_widget(form.title) }}
+</div>
+
+<div class="mb-3">
+
+    {{ form_label(form.content) }}
+    {{ form_widget(form.content) }}
+</div>
+
+
+<div>
+    {% if form.image.vars.value.id is defined %}
+        <img src="{{ asset('images/')~form.image.vars.value.name }}" alt="">
+    {% endif %}
+</div>
+
+<div>
+    <span>{{ (form.image.vars.value.name is defined) ? "Modifier l'" : "Ajouter une" }}image</span>
+    {{ form_row(form.image) }}
+</div>
+
+<div class="mb-3">
+
+    {{ form_label(form.keywords) }}
+    {{ form_widget(form.keywords) }}
+</div>
+
+
+<div class="mb-3">
+
+    {{ form_label(form.categories) }}
+    {{ form_widget(form.categories) }}
+</div>
+
+
+<div class="my-custom-class-for-errors">
+    {{ form_errors(form.content) }}
+</div>

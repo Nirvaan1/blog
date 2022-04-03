@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="example-wrapper">
+        <div class="container">
+            <div class="container" id="startPosts">
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col s12 m10 offset-m1 l9 offset-l1">
+                        <div class="post-preview">
+                            <a href="{{ path('app_show_post', {'id' : post.id}) }}">
+                                <h4 class="post-title titleFont">
+                                    {{ post.title }}
+                                </h4>
+                                {% if post.image.name is defined %}
+                                    <img src="{{ asset('images/')~post.image.name }}" alt="">
+                                {% endif %}
+                                <p>
+                                    {{ post.content }}
+                                </p>
+                                {% if post.keywords |length > 0 %}
+                                    {% for keyword in post.keywords %}
+                                        <p>{{ keyword.name }} {% if not loop.last %} , {% endif %}</p>
+                                    {% endfor %}
+                                {% endif %}
+                                {% for category in post.categories %}
+                                    <p>{{ category.name }} {% if not loop.last %} , {% endif %}</p>
+                                {% endfor %}
+                            </a>
+                            <p class="post-meta"><i class="fa fa-clock-o"></i> 7 days ago by <a href="#">Author name</a>
+                            </p>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}

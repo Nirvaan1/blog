@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-8 ">
+                <h1>Recherche Avancé </h1>
+                {{ form(search_form) }}
+            </div>
+        </div>
+        {% if app.request.method == 'POST' %}
+            <div class="row">
+                <div class="col-8 ">
+                    {% if posts |length > 0 %}
+                        <h1>Resultat </h1>
+                        {% for post in posts %}
+                            <div>
+                                <h2>Author : {{ post.author }} </h2>
+                                <h2>Langue : {{ post.language }} </h2>
+
+                                {% if post.image.name is defined %}
+                                    <img src="{{ asset('images/')~post.image.name }}" alt="">
+                                {% endif %}
+
+                                {% if post.keywords |length > 0 %}
+                                    {% for keyword in post.keywords %}
+                                        <p>{{ keyword.name }} {% if not loop.last %} , {% endif %}</p>
+                                    {% endfor %}
+                                {% endif %}
+                                {% for category in post.categories %}
+                                    <p>{{ category.name }} {% if not loop.last %} , {% endif %}</p>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    {% if posts |length == 0 %}
+
+                         <h1>Pas de resultat pour votre recherche</h1>
+                    {% endif %}
+                    <a href="{{ path('app_blog') }}">Accueil</a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+{% endblock %}

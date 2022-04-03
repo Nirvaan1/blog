@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+            <h1 class="text-center">Ajouter un Article</h1>
+           {% include('post/form.html.twig') %}
+
+            <button class=" addKeyword btn btn-primary" type="button">
+                Ajouter un mot clé ?
+            </button>
+
+            <button class="btn btn-primary" type="submit" name="action">
+                Ajouter !
+            </button>
+
+            {{ form_end(form) }}
+
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+<script >
+    $(document).ready(function (){
+        let container = $('#post_keywords');
+        let index = container.find(':input').length;
+
+        if (0 === index){
+            addKeyword(container);
+        }
+
+        $('.addKeyword').click(function (e){
+            e.prevent_default;
+            addKeyword(container)
+        })
+
+        function addKeyword(container){
+            let template = container.attr('data-prototype')
+            .replace(/__name__label/g, 'Mot clé n°' + (index + 1))
+            .replace(/__name/g, index)
+
+            let prototype = $(template)
+
+            container.append(prototype)
+
+            index ++;
+        }
+    })
+</script>
+
+
+{% endblock %}

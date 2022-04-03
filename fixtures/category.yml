@@ -1,0 +1,10 @@
+App\Entity\Category:
+  Back-end:
+    name: Back-end
+    description: Le développement Back-end...
+  Front-end:
+    name: Front-end
+    description: Le développement Front-end
+  DevOps:
+    name: DevOps
+    description: Le devOps permet d'optimiser
